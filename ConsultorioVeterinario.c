@@ -15,12 +15,12 @@ struct Fecha{
 struct turnos{
 	int MatriculaVet,dni;
 	struct Fecha fecha;
-	chart DetAt[380];
+	char DetAt[380];
 }tur;
 
 struct Consultorio{
 	char ApellidoNombre[60],Telefono[25];
-         int Matricula,Dni;
+        int Matricula,Dni;
  }cons;
 
 struct FechaNacimiento{
@@ -44,7 +44,6 @@ void RegistrarTurnos(FILE*turnos);
 void VisualizarTurnos(FILE*turnos);
 void RegistraEvolucion(FILE*turnos); 
 
-
 int main(){
 	do{
 		MenuPrincipal();
@@ -64,18 +63,16 @@ int main(){
 		}
 	}while(opp!=4);
 }
-
 void ModuloConsultorio(){
 	do{
-			Menu();
-			switch(opc){
-			case 1:{
+		Menu();
+		switch(opc){
+		case 1:{
 			char password[20],Matricula[20];
-				printf("\n Digite su numero de matricula: ");scanf("%d",&Matricula);
-				_flushall();
-				printf("\n Digite su password: ");gets(password); //PASSWORD ES LA CONTRASEÑA 
-
-	break;}
+			printf("\n Digite su numero de matricula: ");scanf("%d",&Matricula);
+			_flushall();
+			printf("\n Digite su password: ");gets(password); //PASSWORD ES LA CONTRASEÑA 
+		break;}
 			case 2:{
 				if(acceso==1){
 					VisualizarTurnos(turnos);	
@@ -111,8 +108,8 @@ void ModuloConsultorio(){
 			break;}
 		}
 	}while(opc!=4);
-	void VerListaTurnos(FILE*turnos)
-	{
+}
+void VerListaTurnos(FILE*turnos){
 	rewind(turnos);
 	turnos=fopen("Turnos.dat","r+b");
 	fread(&tur,sizeof(Turnos),1,turnos);
@@ -177,10 +174,8 @@ void VisualizarTurnos(FILE*turnos){
 	}
 	fclose(turnos);
 	getch();
-}								
-				
-void Menu()
-{
+}												
+void Menu(){
 	system("color 5"); //puse el color purpura o rosa para el programa se lo puede cambiar
 	system("cls");
 	
@@ -194,11 +189,8 @@ void Menu()
 	printf("\t\t\t\t\t\t\t**********************************************************\n");
 	printf("\n\n\t\t\t\t\t\t\t**\t - Ingrese una opcion: ");
 	scanf("%d", &opc);
-	
-	
 }
-	void MenuPrincipal()
-	{
+void MenuPrincipal(){
 	system("color 5");
 	system("cls");
 	printf("   Menu principal"); 
@@ -208,7 +200,3 @@ void Menu()
  	printf("\n 4 - Cerrar la aplicacion");
  	printf("\n\n Ingrese una opcion: ");scanf("%d",&opp);
 }
-
-
-				
-	
